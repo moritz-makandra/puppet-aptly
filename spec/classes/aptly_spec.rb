@@ -111,7 +111,7 @@ describe 'aptly', type: :class do
             with_mode('0644').\
             with_owner('aptly').\
             with_group('aptly').\
-            with_recurse(true)
+            with_recurse(false)
         end
       end
     end
