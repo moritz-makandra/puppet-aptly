@@ -8,10 +8,11 @@ define aptly::mirror (
   $uid           = '450',
   $gid           = '450',
   $distribution  = $::lsbdistcodename,
-  $architectures = [],
+  $architectures = $::aptly::architectures,
   $components    = [],
   $with_sources  = false,
   $with_udebs    = false,
+  $update        = true,
 ) {
   validate_string( $distribution)
   validate_array(
@@ -34,5 +35,6 @@ define aptly::mirror (
     components    => $components,
     with_sources  => $with_sources,
     with_udebs    => $with_udebs,
+    update        => $update,
   }
 }

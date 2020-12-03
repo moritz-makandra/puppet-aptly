@@ -173,8 +173,10 @@ aptly::mirror { 'debian_stable':
   distribution  => 'stable',
   components    => [ 'main' ],
   architectures => ['amd64'],
+  update        => true,
 }
 ```
+**Note:** Updating large mirrors from puppet can lead into a timeout of the puppetrun. 
 
 **Note:** This module does not manage the gpg keys directly, so if you don't take care of adding the gpg file of your target repository,
 you'll end up with the following error:
