@@ -2,6 +2,7 @@ require: rubocop-rspec
 AllCops:
   Include:
     - ./**/*.rb
+    - 'lib/**/*.rb'
     - '**/Gemfile'
     - '**/Guardfile'
     - '**/Rakefile'
@@ -11,7 +12,7 @@ AllCops:
     - .vendor/**/*
     - pkg/**/*
     - spec/fixtures/**/*
-Lint/ConditionPosition:
+Layout/ConditionPosition:
   Enabled: True
 
 Lint/ElseLayout:
@@ -20,16 +21,13 @@ Lint/ElseLayout:
 Lint/UnreachableCode:
   Enabled: True
 
-Lint/UselessComparison:
-  Enabled: True
-
 Lint/EnsureReturn:
   Enabled: True
 
-Lint/HandleExceptions:
+Lint/SuppressedException:
   Enabled: True
 
-Lint/LiteralInCondition:
+Lint/LiteralAsCondition:
   Enabled: True
 
 Lint/ShadowingOuterLocalVariable:
@@ -53,7 +51,7 @@ Lint/AmbiguousOperator:
 Lint/AssignmentInCondition:
   Enabled: True
 
-Style/SpaceBeforeComment:
+Layout/SpaceBeforeComment:
   Enabled: True
 
 Style/AndOr:
@@ -82,13 +80,13 @@ Lint/AmbiguousRegexpLiteral:
 Security/Eval:
   Enabled: True
 
-Lint/BlockAlignment:
+Layout/BlockAlignment:
   Enabled: True
 
-Lint/DefEndAlignment:
+Layout/DefEndAlignment:
   Enabled: True
 
-Lint/EndAlignment:
+Layout/EndAlignment:
   Enabled: True
 
 Lint/DeprecatedClassMethods:
@@ -103,7 +101,7 @@ Lint/ParenthesesAsGroupedExpression:
 Lint/RescueException:
   Enabled: True
 
-Lint/StringConversionInInterpolation:
+Lint/RedundantStringCoercion:
   Enabled: True
 
 Lint/UnusedBlockArgument:
@@ -121,22 +119,22 @@ Lint/UselessAssignment:
 Lint/Void:
   Enabled: True
 
-Style/AccessModifierIndentation:
+Layout/AccessModifierIndentation:
   Enabled: True
 
-Style/AccessorMethodName:
+Naming/AccessorMethodName:
   Enabled: True
 
 Style/Alias:
   Enabled: True
 
-Style/AlignArray:
+Layout/ArrayAlignment:
   Enabled: True
 
-Style/AlignHash:
+Layout/HashAlignment:
   Enabled: True
 
-Style/AlignParameters:
+Layout/ParameterAlignment:
   Enabled: True
 
 Metrics/BlockNesting:
@@ -148,19 +146,16 @@ Style/AsciiComments:
 Style/Attr:
   Enabled: True
 
-Style/BracesAroundHashParameters:
-  Enabled: True
-
 Style/CaseEquality:
   Enabled: True
 
-Style/CaseIndentation:
+Layout/CaseIndentation:
   Enabled: True
 
 Style/CharacterLiteral:
   Enabled: True
 
-Style/ClassAndModuleCamelCase:
+Naming/ClassAndModuleCamelCase:
   Enabled: False
 
 Style/ClassAndModuleChildren:
@@ -185,67 +180,61 @@ Style/WhenThen:
 Style/WordArray:
   Enabled: True
 
-Style/UnneededPercentQ:
+Style/RedundantPercentQ:
   Enabled: True
 
-Style/Tab:
+Layout/SpaceBeforeSemicolon:
   Enabled: True
 
-Style/SpaceBeforeSemicolon:
+Layout/TrailingEmptyLines:
   Enabled: True
 
-Style/TrailingBlankLines:
+Layout/SpaceInsideBlockBraces:
   Enabled: True
 
-Style/SpaceInsideBlockBraces:
+Layout/SpaceInsideHashLiteralBraces:
   Enabled: True
 
-Style/SpaceInsideBrackets:
+Layout/SpaceInsideParens:
   Enabled: True
 
-Style/SpaceInsideHashLiteralBraces:
+Layout/LeadingCommentSpace:
   Enabled: True
 
-Style/SpaceInsideParens:
+Layout/SpaceBeforeFirstArg:
   Enabled: True
 
-Style/LeadingCommentSpace:
+Layout/SpaceAfterColon:
   Enabled: True
 
-Style/SpaceBeforeFirstArg:
+Layout/SpaceAfterComma:
   Enabled: True
 
-Style/SpaceAfterColon:
+Layout/SpaceAfterMethodName:
   Enabled: True
 
-Style/SpaceAfterComma:
+Layout/SpaceAfterNot:
   Enabled: True
 
-Style/SpaceAfterMethodName:
+Layout/SpaceAfterSemicolon:
   Enabled: True
 
-Style/SpaceAfterNot:
+Layout/SpaceAroundEqualsInParameterDefault:
   Enabled: True
 
-Style/SpaceAfterSemicolon:
+Layout/SpaceAroundOperators:
   Enabled: True
 
-Style/SpaceAroundEqualsInParameterDefault:
+Layout/SpaceBeforeBlockBraces:
   Enabled: True
 
-Style/SpaceAroundOperators:
-  Enabled: True
-
-Style/SpaceBeforeBlockBraces:
-  Enabled: True
-
-Style/SpaceBeforeComma:
+Layout/SpaceBeforeComma:
   Enabled: True
 
 Style/CollectionMethods:
   Enabled: True
 
-Style/CommentIndentation:
+Layout/CommentIndentation:
   Enabled: True
 
 Style/ColonMethodCall:
@@ -258,7 +247,7 @@ Style/CommentAnnotation:
 Metrics/CyclomaticComplexity:
   Enabled: False
 
-Style/ConstantName:
+Naming/ConstantName:
   Enabled: True
 
 Style/Documentation:
@@ -270,7 +259,7 @@ Style/DefWithParentheses:
 Style/PreferredHashMethods:
   Enabled: True
 
-Style/DotPosition:
+Layout/DotPosition:
   EnforcedStyle: trailing
 
 Style/DoubleNegation:
@@ -279,32 +268,26 @@ Style/DoubleNegation:
 Style/EachWithObject:
   Enabled: True
 
-Style/EmptyLineBetweenDefs:
+Layout/EmptyLineBetweenDefs:
   Enabled: True
 
-Style/IndentArray:
+Layout/IndentationConsistency:
   Enabled: True
 
-Style/IndentHash:
+Layout/IndentationWidth:
   Enabled: True
 
-Style/IndentationConsistency:
+Layout/EmptyLines:
   Enabled: True
 
-Style/IndentationWidth:
-  Enabled: True
-
-Style/EmptyLines:
-  Enabled: True
-
-Style/EmptyLinesAroundAccessModifier:
+Layout/EmptyLinesAroundAccessModifier:
   Enabled: True
 
 Style/EmptyLiteral:
   Enabled: True
 
 # Configuration parameters: AllowURI, URISchemes.
-Metrics/LineLength:
+Layout/LineLength:
   Enabled: False
 
 Style/MethodCallWithoutArgsParentheses:
@@ -316,7 +299,7 @@ Style/MethodDefParentheses:
 Style/LineEndConcatenation:
   Enabled: True
 
-Style/TrailingWhitespace:
+Layout/TrailingWhitespace:
   Enabled: True
 
 Style/StringLiterals:
@@ -325,9 +308,11 @@ Style/StringLiterals:
 Style/TrailingCommaInArguments:
   Enabled: True
 
-Style/TrailingCommaInLiteral:
+Style/TrailingCommaInArrayLiteral:
   Enabled: True
 
+Style/TrailingCommaInHashLiteral:
+  Enabled: True
 Style/GlobalVars:
   Enabled: True
 
@@ -367,7 +352,7 @@ Style/UnlessElse:
 Style/VariableInterpolation:
   Enabled: True
 
-Style/VariableName:
+Naming/VariableName:
   Enabled: True
 
 Style/WhileUntilDo:
@@ -376,7 +361,7 @@ Style/WhileUntilDo:
 Style/EvenOdd:
   Enabled: True
 
-Style/FileName:
+Naming/FileName:
   Enabled: True
 
 Style/For:
@@ -385,7 +370,7 @@ Style/For:
 Style/Lambda:
   Enabled: True
 
-Style/MethodName:
+Naming/MethodName:
   Enabled: True
 
 Style/MultilineTernaryOperator:
@@ -421,7 +406,7 @@ Style/NumericLiterals:
 Style/OneLineConditional:
   Enabled: True
 
-Style/OpMethod:
+Naming/BinaryOperatorParameterName:
   Enabled: True
 
 Style/ParenthesesAroundCondition:
@@ -433,7 +418,7 @@ Style/PercentLiteralDelimiters:
 Style/PerlBackrefs:
   Enabled: True
 
-Style/PredicateName:
+Naming/PredicateName:
   Enabled: True
 
 Style/RedundantException:
@@ -468,9 +453,6 @@ Metrics/ParameterLists:
 Lint/RequireParentheses:
   Enabled: True
 
-Style/SpaceBeforeFirstArg:
-  Enabled: True
-
 Style/ModuleFunction:
   Enabled: True
 
@@ -486,7 +468,7 @@ Style/Encoding:
 Style/BlockDelimiters:
   Enabled: True
 
-Style/MultilineBlockLayout:
+Layout/MultilineBlockLayout:
   Enabled: True
 
 # 'Complexity' is very relative
@@ -497,10 +479,7 @@ Metrics/AbcSize:
 Metrics/PerceivedComplexity:
   Enabled: False
 
-Lint/UselessAssignment:
-  Enabled: True
-
-Style/ClosingParenthesisIndentation:
+Layout/ClosingParenthesisIndentation:
   Enabled: True
 
 # RSpec
