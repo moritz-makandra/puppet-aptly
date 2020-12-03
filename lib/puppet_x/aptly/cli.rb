@@ -47,9 +47,11 @@ module Puppet_X
         cmd << " #{object} #{action} "
         cmd << arguments.delete_if { |val| val == 'undef' }.join(' ')
 
+        environment = { 'HOME' => '/home/aptly' }
+
         begin
           Puppet.debug("Executing: #{cmd}")
-          result = Puppet::Util::Execution.execute(cmd, uid: uid, gid: gid, failonfail: true)
+          result = Puppet::Util::Execution.execute(cmd, uid: uid, gid: gid, failonfail: true, custom_environment: environment)
         rescue => e
           raise Puppet::Error, e.message if exceptions
           e.message
