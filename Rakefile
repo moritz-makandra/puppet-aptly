@@ -5,7 +5,6 @@ require 'bundler/setup'
 
 require 'puppetlabs_spec_helper/rake_tasks'
 require 'puppet/version'
-require 'puppet/vendor/semantic/lib/semantic' unless Puppet.version.to_f < 3.6
 require 'puppet-lint/tasks/puppet-lint'
 require 'puppet-syntax/tasks/puppet-syntax'
 require 'metadata-json-lint/rake_task'
@@ -22,6 +21,16 @@ begin
   RuboCop::RakeTask.new
 rescue LoadError => e
   puts "INFO: ignoring rubocop tasks as not installed #{e.message}"
+end
+
+def v(ver)
+  Gem::Version.new(ver)
+end
+
+if v(Puppet.version) >= v('4.9')
+  require 'semantic_puppet'
+elsif v(Puppet.version) >= v('3.6') && v(Puppet.version) < v('4.9')
+  require 'puppet/vendor/semantic/lib/semantic'
 end
 
 exclude_paths = [

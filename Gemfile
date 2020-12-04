@@ -2,9 +2,11 @@
 
 source ENV['GEM_SOURCE'] || 'https://rubygems.org'
 
+puppetversion = ENV['PUPPET_VERSION'] || '~> 4.0'
+
 group :test do
   gem 'metadata-json-lint'
-  gem 'puppet', ENV['PUPPET_VERSION'] || '~> 4.0'
+  gem 'puppet', puppetversion
   gem 'puppetlabs_spec_helper'
   gem 'rake'
   gem 'rspec-core', '< 3.2.0' if RUBY_VERSION < '1.9'
@@ -23,6 +25,10 @@ group :test do
   gem 'puppet-lint-version_comparison-check'
 
   gem 'json_pure', '<= 2.0.1' if RUBY_VERSION < '2.0.0'
+
+  install_if(Gem::Version.new(puppetversion.split(' ').last) < Gem::Version.new(4.9)) do
+    gem 'semantic_puppet'
+  end
 end
 
 group :development do
